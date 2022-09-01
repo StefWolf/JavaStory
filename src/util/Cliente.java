@@ -4,7 +4,7 @@ import java.util.Vector;
 import util.Produto;
 
 public class Cliente {
-    private String name;
+    private String name; 
     private String password;
     private int id;
     private double coins=0;

@@ -10,7 +10,7 @@ import util.Produto;
 public class Estante {
     Vector<Produto> product = new Vector<Produto>();
 
-    public void newProduct(int amount){ 
+    public void setProduct(int amount, String owner){ 
         Scanner read = new Scanner(System.in);
         String name, category;
         Double value;
@@ -29,7 +29,7 @@ public class Estante {
             System.out.println("Status: ");
             status = read.nextBoolean();
 
-            Produto prod = new Produto(name, value, category, status);
+            Produto prod = new Produto(name, value, category, status, owner);
             product.add(prod);
 
         }
@@ -52,9 +52,13 @@ public class Estante {
 
     public void showEstante(){
         System.out.println("------- PRODUTOS NO ESTOQUE ---------");
-        for(int i = 0; i < product.size(); i++){
-            if(product.get(i).getStatus() != false){
-                product.get(i).showProduct();
+        if(product.size() == 0){
+            System.out.println("Estoque vazio");
+        } else {
+            for(int i = 0; i < product.size(); i++){
+                if(product.get(i).getStatus() != false){
+                    product.get(i).showProduct();
+                }
             }
         }
     }

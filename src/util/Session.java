@@ -55,11 +55,15 @@ public class Session {
         System.out.println("SESSÃO: "+ client.getName()+" | Estoque: "+client.getQtdProduct());
         System.out.println("1 -> Visualizar produtos");
         System.out.println("2 -> Comprar produto");
-        System.out.println("3 -> Sair");
+        System.out.println("3 -> Vender produtos");
+        System.out.println("4 -> Sair");
 
         int request = read.nextInt();
 
         switch(request){
+            case 1:
+                estante.showEstante();
+                break;
             case 2:
                 Boolean response = buyProduct();
                 if(response == true){
@@ -68,8 +72,14 @@ public class Session {
                     System.out.println("Compra não finalizada");
                 }
                 break;
-            case 3:
+            case 4:
                 statusSession = false;
+                break;
+            
+            case 3:
+                System.out.println("Digite a quantidade de produtos");
+                int amount_product = read.nextInt();
+                estante.setProduct(amount_product, client.getName());
                 break;
         }
 

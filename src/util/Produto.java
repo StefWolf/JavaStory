@@ -1,4 +1,5 @@
 package util;
+import java.util.Scanner;
 
 public class Produto {
     //This is atribute of class Products
@@ -7,12 +8,14 @@ public class Produto {
     private String category;
     private Boolean status;
     private Integer id;
+    private String owner;
 
-    Produto(String _name, Double _value, String _category, Boolean _status){
+    Produto(String _name, Double _value, String _category, Boolean _status, String _owner){
         name = _name;
         value = _value;
         category = _category;
         status = _status;
+        owner = _owner;
     }
 
     public void updateStatus(Boolean _status){
@@ -20,10 +23,16 @@ public class Produto {
     }
 
     public void showProduct(){
-        System.out.println("Nome:"+name);
-        System.out.println("Valor:"+value);
-        System.out.println("Categoria:"+category);
-        System.out.println("Status:"+status+"\n");
+        Scanner read = new Scanner(System.in);
+
+        System.out.println("Nome: "+name);
+        System.out.println("Valor: "+value);
+        System.out.println("Categoria: "+category);
+        System.out.println("Status: "+status);
+        System.out.println("Vendedor: "+owner+"\n");
+
+        int enter = read.nextInt();
+        
     }
 
     public Boolean getStatus(){
